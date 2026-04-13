@@ -286,3 +286,4 @@ export default function Game({ room, myId, onNavigate, onGiveUp }) {
     </div>
   )
 }
+  

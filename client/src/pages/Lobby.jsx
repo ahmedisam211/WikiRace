@@ -58,7 +58,7 @@ export default function Lobby({ room, myId, countdown, error, onSetArticles, onS
           {/* Article selection — host only */}
           {isHost ? (
             <div style={{ marginBottom: '2rem' }}>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: '11px', letterSpacing: '0.2em', color: 'var(--muted)', marginBottom: '0.75rem' }}>SET THE RACE ARTICLES</div>
+              <div style={{ fontFamily: 'var(--mono)', fontSize: '15px', letterSpacing: '0.2em', color: 'var(--muted)', marginBottom: '0.75rem' }}>SET THE RACE ARTICLES</div>
               <form onSubmit={handleSetArticles}>
                 <label style={labelSt}>START ARTICLE</label>
                 <ArticleSearch placeholder="e.g. Banana" onSelect={setStartArticle} initial={startArticle} />

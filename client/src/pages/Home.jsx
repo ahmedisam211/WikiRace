@@ -72,7 +72,7 @@ export default function Home({ connected, error, onCreateRoom, onJoinRoom, onCle
               ) : (
                 <form onSubmit={handleJoin}>
                   <label style={{ display: 'block', fontFamily: 'var(--mono)', fontSize: '11px', letterSpacing: '0.15em', color: 'var(--muted)', marginBottom: '0.4rem', marginTop: '1.25rem' }}>ROOM CODE</label>
-                  <input value={joinCode} onChange={e => setJoinCode(e.target.value.toUpperCase())} placeholder="e.g. WK4X2P" maxLength={6} style={{ width: '100%', padding: '0.6rem 0.75rem', border: '1.5px solid var(--paper2)', borderRadius: 4, fontFamily: 'var(--mono)', fontSize: '1.4rem', letterSpacing: '0.25em', background: 'var(--paper)', color: 'var(--ink)', outline: 'none' }} />
+                  <input value={joinCode} onChange={e => setJoinCode(e.target.value.toUpperCase())} placeholder="" maxLength={6} style={{ width: '100%', padding: '0.6rem 0.75rem', border: '1.5px solid var(--paper2)', borderRadius: 4, fontFamily: 'var(--mono)', fontSize: '1.4rem', letterSpacing: '0.25em', background: 'var(--paper)', color: 'var(--ink)', outline: 'none' }} />
                   <button type="submit" disabled={!playerName.trim() || joinCode.length < 6 || !connected} style={{ display: 'block', width: '100%', marginTop: '1.5rem', padding: '0.85rem', background: 'var(--accent2)', color: 'white', border: 'none', borderRadius: 4, fontFamily: 'var(--display)', fontSize: '1.1rem', letterSpacing: '0.1em', cursor: 'pointer' }}>→ JOIN ROOM</button>
                 </form>
               )}
@@ -81,7 +81,7 @@ export default function Home({ connected, error, onCreateRoom, onJoinRoom, onCle
 
           <div style={{ marginTop: '1.5rem', padding: '1.25rem', border: '1px solid var(--paper2)', borderRadius: 4, background: 'var(--paper2)' }}>
             <div style={{ fontFamily: 'var(--display)', fontSize: '1rem', letterSpacing: '0.1em', marginBottom: '0.75rem', color: 'var(--muted)' }}>HOW TO PLAY</div>
-            {['Host creates a room, then picks the start and target articles in the lobby', 'Share the 6-letter code with friends so they can join', 'Everyone navigates Wikipedia by clicking article links', 'First to reach the target article wins!'].map((tip, i) => (
+            {['Host creates a room.', 'Share the 6-letter code with friends so they can join', 'Host picks the start and target articles in the lobby' , 'Everyone navigates Wikipedia by clicking article links', 'First to reach the target article wins!'].map((tip, i) => (
               <div key={i} style={{ display: 'flex', gap: '0.75rem', fontSize: '14px', color: 'var(--ink)', marginBottom: '0.4rem' }}>
                 <span style={{ fontFamily: 'var(--mono)', color: 'var(--accent)', fontWeight: 500, flexShrink: 0 }}>{i + 1}.</span>{tip}
               </div>
