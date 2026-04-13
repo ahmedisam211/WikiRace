@@ -4,13 +4,10 @@ import Home from './pages/Home.jsx'
 import Lobby from './pages/Lobby.jsx'
 import Game from './pages/Game.jsx'
 import Results from './pages/Results.jsx'
-import { Analytics } from "@vercel/analytics/react"
-
 const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:3001'
 
 
 export default function App() {
-  <Analytics/>
   const socketRef = useRef(null)
   const [connected, setConnected] = useState(false)
   const [page, setPage] = useState('home') // home | lobby | game | results
