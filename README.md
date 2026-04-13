@@ -1,16 +1,16 @@
-<<<<<<< HEAD
 # WikiRace
 =======
-# WikiRace 🏁
+# WikiRace 
 
-A real-time multiplayer browser game where players race through Wikipedia by clicking links.
+A real-time multiplayer browser game where players race through Wikipedia articles by clicking links.
 
 ## How to Play
 
-1. Host creates a room and picks a **start article** and **target article**
+1. Host creates a room.
 2. Share the **6-letter room code** with friends
-3. Everyone clicks Wikipedia links to navigate toward the target
-4. **First to reach the target wins!**
+3. Host picks a **start article** and **target article**
+4. Everyone clicks Wikipedia links to navigate toward the target
+5. **First to reach the target wins!**
 
 ---
 
@@ -18,10 +18,10 @@ A real-time multiplayer browser game where players race through Wikipedia by cli
 
 ```
 wikirace/
-├── server/          # Node.js + Socket.io backend
+├── server/          # Node.js + Socket.io for backend
 │   ├── index.js
 │   └── package.json
-└── client/          # React frontend (Vite)
+└── client/          # React for frontend (Vite)
     ├── src/
     │   ├── App.jsx
     │   ├── pages/
@@ -66,40 +66,6 @@ Open two browser tabs (or different browsers) to test multiplayer!
 
 ---
 
-## Deployment
-
-### Server → Railway (recommended, free tier)
-
-1. Push the `/server` folder to a GitHub repo (or use a monorepo)
-2. Go to [railway.app](https://railway.app), create a new project
-3. Connect your GitHub repo, set root to `/server`
-4. Railway auto-detects Node.js and runs `npm start`
-5. Note your Railway URL: `https://your-app.up.railway.app`
-
-**Environment variables on Railway:**
-```
-PORT=3001        (Railway sets this automatically)
-CLIENT_URL=https://your-frontend.vercel.app
-```
-
-### Client → Vercel
-
-1. Push the `/client` folder to GitHub
-2. Go to [vercel.com](https://vercel.com), import the repo
-3. Set the root directory to `client`
-4. Add environment variable:
-   ```
-   VITE_SERVER_URL=https://your-app.up.railway.app
-   ```
-5. Deploy — Vercel gives you a URL like `https://wikirace.vercel.app`
-
-### Alternative: Render (server)
-
-1. Create a new **Web Service** on [render.com](https://render.com)
-2. Connect your repo, set root to `server`
-3. Build command: `npm install`
-4. Start command: `npm start`
-5. Note: free tier spins down after inactivity (cold start ~30s)
 
 ---
 
@@ -129,12 +95,3 @@ CLIENT_URL=https://your-frontend.vercel.app
 | Hosting | Railway (server) + Vercel (client) |
 
 ---
-
-## Customization Ideas
-
-- Add a **time limit** per game
-- Add **random article** button using `https://en.wikipedia.org/api/rest_v1/page/random/summary`
-- Track **all-time fastest runs** with a leaderboard (add a database)
-- Add **chat** between players during the race
-- Show the **article graph** of how each player navigated
->>>>>>> b1bf680 (first)
