@@ -89,7 +89,10 @@ export default function Game({ room, myId, onNavigate, onGiveUp }) {
         if (wikiTitle) {
           a.setAttribute('data-wiki', wikiTitle)
           a.setAttribute('href', '#')
-          a.className = 'wiki-link'
+          // Ensure children (like <span> or <b>) don't block the click
+          a.querySelectorAll('*').forEach(child => {
+            child.style.pointerEvents = 'none'
+          })
         } else {
           // Non-navigable — strip link
           const span = document.createElement('span')
@@ -126,18 +129,25 @@ export default function Game({ room, myId, onNavigate, onGiveUp }) {
     const el = contentRef.current
     if (!el) return
     const handler = (e) => {
-      const link = e.target.closest('[data-wiki]')
+      // Look for the closest link with data-wiki
+      const link = e.target.closest('a[data-wiki]')
       if (!link) return
+      
       e.preventDefault()
+      e.stopPropagation()
+      
       if (iDone) return
+      
       const title = link.getAttribute('data-wiki')
       if (!title) return
+      
+      console.log('Navigating to:', title)
       setArticleTitle(title)
       onNavigate(title)
     }
-    el.addEventListener('click', handler)
-    return () => el.removeEventListener('click', handler)
-  }, [iDone, onNavigate])
+    el.addEventListener('click', handler, true) // Use capture phase
+    return () => el.removeEventListener('click', handler, true)
+  }, [iDone, onNavigate, articleHtml]) // Re-bind when HTML changes
 
   const formatTime = s => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`
 
