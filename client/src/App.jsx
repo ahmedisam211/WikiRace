@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { io } from 'socket.io-client'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import Home from './pages/Home.jsx'
 import Lobby from './pages/Lobby.jsx'
 import Game from './pages/Game.jsx'
@@ -181,6 +182,7 @@ export default function App() {
         />
       )}
       <Analytics />
+      <SpeedInsights/>
     </div>
   )
 }
