@@ -1,5 +1,4 @@
-*
-/*,
+*,
 *::before,
 *::after {
     box-sizing: border-box;
@@ -34,7 +33,7 @@ body {
 }
 
 
-/* Newspaper grid texture 
+/* Newspaper grid texture */
 
 body::before {
     content: '';
@@ -51,7 +50,7 @@ body::before {
 }
 
 
-/* Scrollbar 
+/* Scrollbar */
 
 ::-webkit-scrollbar {
     width: 6px;
@@ -67,7 +66,7 @@ body::before {
 }
 
 
-/* Wikipedia article styles *
+/* Wikipedia article styles */
 
 .wiki-content {
     font-family: var(--sans);
@@ -184,250 +183,4 @@ body::before {
 
 .animate-fadeup {
     animation: fadeUp 0.35s ease forwards;
-}*/
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-:root {
-    --ink: #0a0a0a;
-    --paper: #f5f0e8;
-    --paper2: #ede8dc;
-    --accent: #d4380d;
-    --accent2: #1a6b3c;
-    --gold: #b8860b;
-    --muted: #6b6355;
-    --border: #2a2a2a;
-    --mono: 'DM Mono', monospace;
-    --sans: 'DM Sans', sans-serif;
-    --display: 'Bebas Neue', sans-serif;
-}
-
-html {
-    font-size: clamp(14px, 2vw, 16px);
-}
-
-body {
-    font-family: var(--sans);
-    background: var(--paper);
-    color: var(--ink);
-    min-height: 100vh;
-    line-height: 1.6;
-}
-
-
-/* Newspaper grid texture */
-
-body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(0, 0, 0, 0.03) 31px, rgba(0, 0, 0, 0.03) 32px);
-    pointer-events: none;
-    z-index: 0;
-}
-
-#root {
-    position: relative;
-    z-index: 1;
-}
-
-
-/* Scrollbar */
-
-::-webkit-scrollbar {
-    width: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--paper2);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--border);
-    border-radius: 3px;
-}
-
-
-/* Wikipedia article styles */
-
-.wiki-content {
-    font-family: var(--sans);
-    font-size: clamp(14px, 2vw, 15px);
-    line-height: 1.75;
-    color: var(--ink);
-}
-
-.wiki-content a {
-    color: var(--accent2);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: color 0.15s;
-}
-
-.wiki-content a:hover {
-    color: var(--accent);
-}
-
-.wiki-content p {
-    margin-bottom: 1rem;
-}
-
-.wiki-content h2 {
-    font-family: var(--display);
-    letter-spacing: 0.05em;
-    font-size: clamp(1.3rem, 4vw, 1.6rem);
-    margin: 1.5rem 0 0.5rem;
-    border-bottom: 2px solid var(--border);
-    padding-bottom: 0.25rem;
-}
-
-.wiki-content h3 {
-    font-size: clamp(1rem, 2.5vw, 1.1rem);
-    font-weight: 600;
-    margin: 1rem 0 0.25rem;
-}
-
-.wiki-content ul,
-.wiki-content ol {
-    margin-left: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.wiki-content li {
-    margin-bottom: 0.25rem;
-}
-
-.wiki-content table {
-    border-collapse: collapse;
-    margin: 1rem 0;
-    font-size: clamp(12px, 2vw, 14px);
-    max-width: 100%;
-    overflow-x: auto;
-}
-
-.wiki-content td,
-.wiki-content th {
-    border: 1px solid var(--paper2);
-    padding: clamp(4px, 1vw, 10px);
-}
-
-.wiki-content th {
-    background: var(--paper2);
-    font-weight: 600;
-}
-
-.wiki-content img {
-    max-width: 100%;
-    height: auto;
-}
-
-.wiki-content .thumb,
-.wiki-content figure {
-    float: right;
-    margin: 0 0 1rem 1.5rem;
-    max-width: 100%;
-    font-size: clamp(12px, 2vw, 13px);
-    color: var(--muted);
-}
-
-.wiki-content .thumb img,
-.wiki-content figure img {
-    border: 2px solid var(--paper2);
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes pulse {
-    0%,
-    100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.5;
-    }
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.animate-fadeup {
-    animation: fadeUp 0.35s ease forwards;
-}
-
-
-/* Mobile-first responsive utilities */
-
-@media (max-width: 768px) {
-    html {
-        font-size: clamp(13px, 2vw, 15px);
-    }
-    /* Reduce padding on mobile */
-    body {
-        padding: 0;
-    }
-    /* Hide scrollbar on mobile for cleaner look */
-     ::-webkit-scrollbar {
-        width: 4px;
-    }
-    /* Responsive table handling */
-    .wiki-content table {
-        font-size: clamp(11px, 1.8vw, 13px);
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-    .wiki-content td,
-    .wiki-content th {
-        padding: clamp(3px, 0.8vw, 6px);
-    }
-    /* Responsive images */
-    .wiki-content img {
-        max-width: 100%;
-        height: auto;
-    }
-    .wiki-content .thumb,
-    .wiki-content figure {
-        float: none;
-        margin: 1rem 0;
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    html {
-        font-size: 13px;
-    }
-    .wiki-content h2 {
-        font-size: clamp(1.2rem, 3.5vw, 1.4rem);
-    }
-    .wiki-content h3 {
-        font-size: clamp(0.95rem, 2vw, 1rem);
-    }
-    .wiki-content ul,
-    .wiki-content ol {
-        margin-left: 1rem;
-    }
-    .wiki-content table {
-        font-size: 11px;
-    }
 }
