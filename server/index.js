@@ -114,8 +114,10 @@ io.on("connection", (socket) => {
 
         room.startArticle = startArticle;
         room.endArticle = endArticle;
-        room.players.forEach(p => { p.currentArticle = startArticle;
-            p.path = [startArticle]; });
+        room.players.forEach(p => {
+            p.currentArticle = startArticle;
+            p.path = [startArticle];
+        });
 
         io.to(code).emit("articles_set", { startArticle, endArticle, room: sanitizeRoom(room) });
         console.log(`Room ${code} articles set: ${startArticle} → ${endArticle}`);
@@ -242,7 +244,7 @@ io.on("connection", (socket) => {
             });
         }
     });
-
+    //redeploy
     // GIVE UP
     socket.on("give_up", () => {
         const code = socket.data.roomCode;
