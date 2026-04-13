@@ -31,17 +31,17 @@ export default function Home({ connected, error, onCreateRoom, onJoinRoom, onCle
       </header>
 
       <div style={{ background: 'var(--ink)', padding: '3rem 2rem', textAlign: 'center' }}>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: '11px', letterSpacing: '0.3em', color: 'var(--accent)', marginBottom: '1rem' }}>MULTIPLAYER · REAL-TIME · BROWSER GAME</p>
+        {/* <p style={{ fontFamily: 'var(--mono)', fontSize: '11px', letterSpacing: '0.3em', color: 'var(--accent)', marginBottom: '1rem' }}>MULTIPLAYER · REAL-TIME · BROWSER GAME</p> */}
         <h2 style={{ fontFamily: 'var(--display)', fontSize: 'clamp(2rem, 6vw, 4rem)', color: 'var(--paper)', letterSpacing: '0.05em', lineHeight: 1.1, marginBottom: '1rem' }}>RACE THROUGH<br />WIKIPEDIA</h2>
         <p style={{ color: '#aaa', maxWidth: 480, margin: '0 auto', fontSize: '15px', lineHeight: 1.7 }}>Start at one article. Navigate to the target using only Wikipedia links. First to arrive wins.</p>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', marginTop: '2rem' }}>
+        {/* <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', marginTop: '2rem' }}>
           {[['UP TO', '8 PLAYERS'], ['NO', 'INSTALL'], ['100%', 'FREE']].map(([label, val]) => (
             <div key={val}>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: '10px', color: '#666', letterSpacing: '0.15em' }}>{label}</div>
-              <div style={{ fontFamily: 'var(--display)', fontSize: '1.4rem', color: 'var(--accent)' }}>{val}</div>
+              <div style={{ fontFamily: 'var(--mono)', fontSize: '15px', color: '#666', letterSpacing: '0.12em' }}>{label}</div>
+              <div style={{ fontFamily: 'var(--display)', fontSize: '1.5rem', color: 'var(--accent)' }}>{val}</div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
 
       <div style={{ flex: 1, display: 'flex', alignItems: 'flex-start', justifyContent: 'center', padding: '2.5rem 1rem' }}>
@@ -60,7 +60,7 @@ export default function Home({ connected, error, onCreateRoom, onJoinRoom, onCle
               ))}
             </div>
 
-            <div style={{ padding: '1.75rem' }}>
+            {/* <div style={{ padding: '1.75rem' }}>
               <label style={{ display: 'block', fontFamily: 'var(--mono)', fontSize: '11px', letterSpacing: '0.15em', color: 'var(--muted)', marginBottom: '0.4rem' }}>YOUR NAME</label>
               <input value={playerName} onChange={e => setPlayerName(e.target.value)} placeholder="Enter your name" maxLength={20} autoFocus style={{ width: '100%', padding: '0.6rem 0.75rem', border: '1.5px solid var(--paper2)', borderRadius: 4, fontSize: '15px', fontFamily: 'var(--sans)', background: 'var(--paper)', color: 'var(--ink)', outline: 'none' }} />
 
@@ -77,8 +77,27 @@ export default function Home({ connected, error, onCreateRoom, onJoinRoom, onCle
                 </form>
               )}
             </div>
+          </div> */}
+           <div style={{ padding: 'clamp(1rem, 2vw, 1.75rem)' }}>
+              <label style={{ display: 'block', fontFamily: 'var(--mono)', fontSize: 'clamp(10px, 1.5vw, 11px)', letterSpacing: '0.15em', color: 'var(--muted)', marginBottom: '0.4rem' }}>YOUR NAME</label>
+              <input value={playerName} onChange={e => setPlayerName(e.target.value)} placeholder="Enter your name" maxLength={20} autoFocus style={{ width: '100%', padding: '0.6rem 0.75rem', border: '1.5px solid var(--paper2)', borderRadius: 4, fontSize: 'clamp(14px, 2vw, 15px)', fontFamily: 'var(--sans)', background: 'var(--paper)', color: 'var(--ink)', outline: 'none' }} />
+
+              {tab === 'create' ? (
+                <form onSubmit={handleCreate}>
+                  <p style={{ fontFamily: 'var(--mono)', fontSize: 'clamp(11px, 1.5vw, 12px)', color: 'var(--muted)', marginTop: '1.25rem', lineHeight: 1.6 }}>You will pick the start and target articles inside the room lobby.</p>
+                  <button type="submit" disabled={!playerName.trim() || !connected} style={{ display: 'block', width: '100%', marginTop: '1.5rem', padding: 'clamp(0.6rem, 1.5vw, 0.85rem)', background: 'var(--accent2)', color: 'var(--paper)', border: 'none', borderRadius: 4, fontFamily: 'var(--display)', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', letterSpacing: '0.1em', cursor: 'pointer', opacity: !playerName.trim() || !connected ? 0.5 : 1 }}>→ CREATE ROOM</button>
+                </form>
+              ) : (
+                <form onSubmit={handleJoin}>
+                  <label style={{ display: 'block', fontFamily: 'var(--mono)', fontSize: 'clamp(10px, 1.5vw, 11px)', letterSpacing: '0.15em', color: 'var(--muted)', marginBottom: '0.4rem', marginTop: '1.25rem' }}>ROOM CODE</label>
+                  <input value={joinCode} onChange={e => setJoinCode(e.target.value.toUpperCase())} placeholder="e.g. WK4X2P" maxLength={6} style={{ width: '100%', padding: '0.6rem 0.75rem', border: '1.5px solid var(--paper2)', borderRadius: 4, fontFamily: 'var(--mono)', fontSize: 'clamp(1.2rem, 2.5vw, 1.4rem)', letterSpacing: '0.25em', background: 'var(--paper)', color: 'var(--ink)', outline: 'none' }} />
+                  <button type="submit" disabled={!playerName.trim() || joinCode.length < 6 || !connected} style={{ display: 'block', width: '100%', marginTop: '1.5rem', padding: 'clamp(0.6rem, 1.5vw, 0.85rem)', background: 'var(--accent2)', color: 'white', border: 'none', borderRadius: 4, fontFamily: 'var(--display)', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', letterSpacing: '0.1em', cursor: 'pointer', opacity: !playerName.trim() || joinCode.length < 6 || !connected ? 0.5 : 1 }}>→ JOIN ROOM</button>
+                </form>
+              )}
+            </div>
           </div>
 
+          
           <div style={{ marginTop: '1.5rem', padding: '1.25rem', border: '1px solid var(--paper2)', borderRadius: 4, background: 'var(--paper2)' }}>
             <div style={{ fontFamily: 'var(--display)', fontSize: '1rem', letterSpacing: '0.1em', marginBottom: '0.75rem', color: 'var(--muted)' }}>HOW TO PLAY</div>
             {['Host creates a room.', 'Share the 6-letter code with friends so they can join', 'Host picks the start and target articles in the lobby' , 'Everyone navigates Wikipedia by clicking article links', 'First to reach the target article wins!'].map((tip, i) => (

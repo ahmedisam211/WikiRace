@@ -29,7 +29,7 @@ export default function Results({ room, myId, finalPlayers, onPlayAgain, onGoHom
       <div style={{ flex: 1, maxWidth: 700, margin: '0 auto', width: '100%', padding: '2.5rem 1rem' }}>
         {/* Winner banner */}
         <div style={{ textAlign: 'center', marginBottom: '2.5rem', animation: 'fadeUp 0.4s ease' }}>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: '11px', color: 'var(--muted)', letterSpacing: '0.2em', marginBottom: '0.5rem' }}>RACE COMPLETE</div>
+          <div style={{ fontFamily: 'var(--mono)', fontSize: '15px', color: 'var(--muted)', letterSpacing: '0.2em', marginBottom: '0.5rem' }}>RACE COMPLETE</div>
           {winner ? (
             <>
               <h2 style={{ fontFamily: 'var(--display)', fontSize: 'clamp(2.5rem, 8vw, 5rem)', letterSpacing: '0.05em', color: 'var(--ink)', lineHeight: 1 }}>
@@ -132,9 +132,9 @@ export default function Results({ room, myId, finalPlayers, onPlayAgain, onGoHom
             <button
               onClick={onPlayAgain}
               style={{
-                flex: 2, padding: '0.85rem', background: 'var(--ink)', color: 'var(--paper)',
+                flex: 2, padding: '0.85rem', background: 'var(--accent2)', color: 'var(--paper)',
                 border: 'none', borderRadius: 4, fontFamily: 'var(--display)', fontSize: '1.2rem',
-                letterSpacing: '0.1em', cursor: 'pointer', boxShadow: '3px 3px 0 var(--accent)',
+                letterSpacing: '0.1em', cursor: 'pointer', boxShadow: '3px 3px 0 var(--ink)',
               }}
             >
               → PLAY AGAIN
@@ -147,9 +147,9 @@ export default function Results({ room, myId, finalPlayers, onPlayAgain, onGoHom
           <button
             onClick={onGoHome}
             style={{
-              flex: 1, padding: '0.85rem', background: 'none', color: 'var(--muted)',
-              border: '1.5px solid var(--paper2)', borderRadius: 4, fontFamily: 'var(--mono)',
-              fontSize: '12px', letterSpacing: '0.1em', cursor: 'pointer',
+              flex: 1, padding: '0.85rem', background: 'var(--ink)', color: 'var(--paper2)',
+              border: '1.5px solid var(--paper2)', borderRadius: 4, fontFamily: 'var(--display)',
+              fontSize: '15px', letterSpacing: '0.1em', cursor: 'pointer',
             }}
           >
             HOME

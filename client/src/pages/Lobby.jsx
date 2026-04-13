@@ -108,7 +108,7 @@ export default function Lobby({ room, myId, countdown, error, onSetArticles, onS
           )}
 
           {isHost ? (
-            <button onClick={onStart} disabled={!canStart} style={{ width: '100%', padding: '1rem', background: canStart ? 'var(--ink)' : 'var(--paper2)', color: canStart ? 'var(--paper)' : 'var(--muted)', border: 'none', borderRadius: 4, fontFamily: 'var(--display)', fontSize: '1.3rem', letterSpacing: '0.1em', cursor: canStart ? 'pointer' : 'not-allowed', boxShadow: canStart ? '3px 3px 0 var(--accent)' : 'none' }}>
+            <button onClick={onStart} disabled={!canStart} style={{ width: '100%', padding: '1rem', background: canStart ? 'var(--accent2)' : 'var(--paper2)', color: canStart ? 'var(--paper)' : 'var(--muted)', border: 'none', borderRadius: 4, fontFamily: 'var(--display)', fontSize: '1.3rem', letterSpacing: '0.1em', cursor: canStart ? 'pointer' : 'not-allowed', boxShadow: canStart ? '3px 3px 0 var(--ink)' : 'none' }}>
               {!hasArticles ? 'SET ARTICLES FIRST' : '→ START RACE'}
             </button>
           ) : (
