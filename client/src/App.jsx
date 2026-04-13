@@ -182,7 +182,7 @@ export default function App() {
         />
       )}
       <Analytics />
-      <SpeedInsights/>
+      <SpeedInsights />
     </div>
   )
 }
