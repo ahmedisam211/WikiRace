@@ -34,39 +34,6 @@ wikirace/
     ├── index.html
     └── package.json
 ```
-
----
-
-## Local Development
-
-### 1. Start the server
-
-```bash
-cd server
-npm install
-npm run dev        # uses nodemon for auto-reload
-# OR
-npm start          # production
-```
-
-Server runs on **http://localhost:3001**
-
-### 2. Start the client
-
-```bash
-cd client
-npm install
-cp .env.example .env   # uses localhost:3001 by default
-npm run dev
-```
-
-Client runs on **http://localhost:5173**
-
-Open two browser tabs (or different browsers) to test multiplayer!
-
----
-
-
 ---
 
 ## Features
