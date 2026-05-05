@@ -38,16 +38,16 @@ wikirace/
 
 ## Features
 
-- ✅ Real-time multiplayer via Socket.io
-- ✅ 6-letter room codes
-- ✅ Up to 8 players per room
-- ✅ Wikipedia autocomplete when picking articles
-- ✅ Live leaderboard during the race
-- ✅ Click counter + timer per player
-- ✅ Path history (breadcrumb trail)
-- ✅ Give up option
-- ✅ Play again without leaving the room
-- ✅ Host transfer if host disconnects
+- Real-time multiplayer via Socket.io
+-  6-letter room codes
+-  Up to 8 players per room
+-  Wikipedia autocomplete when picking articles
+-  Live leaderboard during the race
+-  Click counter + timer per player
+-  Path history (breadcrumb trail)
+-  Give up option
+-  Play again without leaving the room
+-  Host transfer if host disconnects
 
 ---
 
