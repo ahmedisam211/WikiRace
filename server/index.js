@@ -15,7 +15,10 @@ const io = new Server(server, {
     },
 });
 
-app.use(cors());
+app.use(cors({
+  origin: "https://wikirace.ahmedisam.online",
+  methods: ["GET", "POST"],
+}));
 app.use(express.json());
 
 // In-memory room storage
