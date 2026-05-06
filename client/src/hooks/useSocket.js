@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { io } from 'socket.io-client'
 
-const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://ahmed.hackclub.app'
+const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://ahmed.hackclub.app:3001'
 
 export function useSocket() {
   const socketRef = useRef(null)
