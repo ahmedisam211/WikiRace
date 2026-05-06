@@ -4,7 +4,7 @@ import Home from './pages/Home.jsx'
 import Lobby from './pages/Lobby.jsx'
 import Game from './pages/Game.jsx'
 import Results from './pages/Results.jsx'
-const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://ahmed.hackclub.app'
+const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://ahmed.hackclub.app:3001'
 
 
 export default function App() {
