@@ -1,21 +1,28 @@
 import { useEffect, useRef, useState } from 'react'
 import { io } from 'socket.io-client'
 
-const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'https://ahmed.hackclub.app'
+const SERVER_URL =
+    import.meta.env.VITE_SERVER_URL || 'https://ahmed.hackclub.app'
 
 export function useSocket() {
-  const socketRef = useRef(null)
-  const [connected, setConnected] = useState(false)
+    const socketRef = useRef(null)
+    const [connected, setConnected] = useState(false)
 
-  useEffect(() => {
-    const socket = io(SERVER_URL, { autoConnect: true })
-    socketRef.current = socket
+    useEffect(() => {
+        // Added the specific transport and credential settings here!
+        const socket = io(SERVER_URL, {
+            autoConnect: true,
+            withCredentials: true,
+            transports: ['websocket', 'polling']
+        })
 
-    socket.on('connect', () => setConnected(true))
-    socket.on('disconnect', () => setConnected(false))
+        socketRef.current = socket
 
-    return () => socket.disconnect()
-  }, [])
+        socket.on('connect', () => setConnected(true))
+        socket.on('disconnect', () => setConnected(false))
 
-  return { socket: socketRef.current, connected }
+        return () => socket.disconnect()
+    }, [])
+
+    return { socket: socketRef.current, connected }
 }
