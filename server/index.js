@@ -18,6 +18,7 @@ const io = new Server(server, {
 app.use(cors({
   origin: "https://wikirace.ahmedisam.online",
   methods: ["GET", "POST"],
+  credentials: true
 }));
 app.use(express.json());
 
