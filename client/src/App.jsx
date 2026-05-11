@@ -18,7 +18,10 @@ export default function App() {
   const [finalPlayers, setFinalPlayers] = useState(null)
 
   useEffect(() => {
-    const socket = io(SERVER_URL)
+    const socket = io(SERVER_URL, {
+      withCredentials: true,
+      transports: ['websocket', 'polling'] // Forces WebSockets first, falls back to polling
+    })
     socketRef.current = socket
 
     socket.on('connect', () => {
