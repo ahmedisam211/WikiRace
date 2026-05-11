@@ -31,7 +31,10 @@ export default function App() {
     socket.on('disconnect', () => setConnected(false))
     socket.on('connect_error', () => setError('Cannot connect to server. Make sure the server is running.'))
 
-    socket.on('error', ({ message }) => setError(message))
+    socket.on('connect_error', (err) => {
+  console.error("Socket connection failed! Reason:", err.message); // <-- This will reveal the secret!
+  setError('Cannot connect to server. Make sure the server is running.');
+});
 
     socket.on('room_created', ({ code, room }) => {
       setRoom(room)
